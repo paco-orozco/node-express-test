@@ -1,20 +1,34 @@
-var update = document.getElementById('update');
+/* globals fetch */
+var update = document.getElementById('update')
+var del = document.getElementById('delete')
 
-update.addEventListener('click', function() {
+update.addEventListener('click', function () {
   fetch('quotes', {
     method: 'put',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({
-      'name': 'Paco Says',
-      'quote': 'This is an example that will update.'
+      'name': 'Darth Vader',
+      'quote': 'I find your lack of faith disturbing.'
     })
   })
-  .then(function(res) {
-    if (res.ok) return res.json()
+  .then(response => {
+    if (response.ok) return response.json()
   })
-  .then(function(data) {
-    console.log(data);
-    window.location.reload(true)
+  .then(data => {
+    console.log(data)
   })
-  app.use(bodyParser.json())
+})
+
+del.addEventListener('click', function () {
+  fetch('quotes', {
+    method: 'delete',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      'name': 'Darth Vader'
+    })
+  }).then(function (response) {
+    window.location.reload()
+  })
 })
