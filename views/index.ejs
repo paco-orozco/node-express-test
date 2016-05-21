@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <header>
+    <title>Node and Express App</title>
+  </header>
+  <body>
+
+    Node Form with template engine
+    <ul class="quotes">
+      <% for(var i=0; i < quotes.length; i++) { %>
+      <li class="quote">
+        <span><%= quotes[i].name %></span>
+        <span><%= quotes[i].quote %></span>
+      </li>
+      <% } %>
+    </ul>
+
+    <form action="/quotes" method="POST">
+    <input type="text" placeholder="name" name="name">
+    <input type="text" placeholder="quote" name="quote">
+    <button type="submit">Submit</button>
+
+    <div>
+      <h2>Replace the last quote with another quote</h2>
+      <button id="update">Update Quote</update>
+    </div>
+    <!-- Scripts go here -->
+    <script src="main.js"></script>
+  </form>
+  </body>
+</html>
